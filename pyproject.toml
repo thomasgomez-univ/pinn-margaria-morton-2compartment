@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-bioenergetic"
+version = "1.0.0"
+description = "Physics-Informed Neural Networks for parameter estimation in a reduced two-compartment Margaria-Morton bioenergetic model of critical power."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Thomas Gomez", email = "thomas.gomez@univ-evry.fr" },
+]
+keywords = [
+    "physics-informed neural networks",
+    "PINN",
+    "bioenergetic model",
+    "critical power",
+    "Margaria-Morton",
+    "structural identifiability",
+    "exercise physiology",
+    "parameter estimation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.26,<2.0",
+    "scipy>=1.12",
+    "matplotlib>=3.8",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+notebooks = ["jupyter>=1.0", "ipykernel>=6.29"]
+dev = ["pytest>=7.0", "pytest-cov>=4.0"]
+
+[project.urls]
+Repository = "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
+Article = "https://doi.org/PLACEHOLDER"
+
+[tool.setuptools.packages.find]
+where = ["src"]

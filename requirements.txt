@@ -1,0 +1,23 @@
+# ============================================================
+# Pinned dependencies for the PINN Margaria-Morton study.
+#
+# These versions match the environment used to produce the
+# figures and numerical results reported in the manuscript:
+#     Gomez, T. (2026). Physics-Informed Neural Networks for
+#     Parameter Estimation in a Two-Compartment Bioenergetic
+#     Model of Critical Power. CMBBE.
+#
+# Tested with Python 3.11 on macOS.
+# ============================================================
+
+# --- Core scientific stack ---
+numpy==1.26.4
+scipy==1.17.1
+matplotlib==3.10.9
+
+# --- Deep learning (CPU build of PyTorch is sufficient) ---
+torch==2.11.0
+
+# --- Optional: notebooks (uncomment to install) ---
+# jupyter>=1.0.0
+# ipykernel>=6.29.0
