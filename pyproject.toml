@@ -45,6 +45,7 @@ dev = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [project.urls]
 Repository = "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
+Software = "https://doi.org/10.5281/zenodo.20076199"
 Article = "https://doi.org/PLACEHOLDER"
 
 [tool.setuptools.packages.find]
