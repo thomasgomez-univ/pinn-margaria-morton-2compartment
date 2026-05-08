@@ -6,7 +6,8 @@
 
 This repository contains the source code, synthetic data, and experiment scripts accompanying the manuscript:
 
-> Gomez, T. (2026). *Physics-Informed Neural Networks for Parameter Estimation in a Two-Compartment Bioenergetic Model of Critical Power*. **Computer Methods in Biomechanics and Biomedical Engineering** (under review).
+> Gomez, T. (2026). *Physics-Informed Neural Networks for Parameter Estimation in a Two-Compartment Bioenergetic Model of Critical Power. Manuscript 
+submitted for peer review..
 
 ---
 
@@ -148,13 +149,12 @@ Full pinned versions: `requirements.txt`. These versions match the environment u
 If you use this code or data, please cite the article:
 
 ```bibtex
-@article{Gomez2026PINN,
+@unpublished{Gomez2026PINN,
   author  = {Gomez, Thomas},
   title   = {Physics-Informed Neural Networks for Parameter Estimation in a
              Two-Compartment Bioenergetic Model of Critical Power},
-  journal = {Computer Methods in Biomechanics and Biomedical Engineering},
   year    = {2026},
-  note    = {Under review}
+  note    = {Manuscript submitted for peer review}
 }
 ```
 
