@@ -1,181 +1,93 @@
-# Physics-Informed Neural Networks for Parameter Estimation in a Two-Compartment Bioenergetic Model of Critical Power
+# From identifiability to protocol design in a two-compartment bioenergetic model of critical power
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20076199.svg)](https://doi.org/10.5281/zenodo.20076199)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
+Code and synthetic data accompanying the manuscript
 
-This repository contains the source code, synthetic data, and experiment scripts accompanying the manuscript:
+> Gomez, T. (2026). *From identifiability to protocol design in a two-compartment
+> bioenergetic model of critical power: a simulation study.*
 
-> Gomez, T. (2026). *Physics-Informed Neural Networks for Parameter Estimation in a Two-Compartment Bioenergetic Model of Critical Power. Manuscript 
-submitted for peer review..
+> **Version 2.0.0 supersedes version 1.0.0.** The ODE residual used by the
+> physics-informed network in v1.0.0 was incorrect, and the experimental design
+> lacked the controls listed below. Results obtained with v1.0.0 are not
+> reproducible with this version and should not be used. See `CHANGES.md`.
 
----
+## The model
 
-## Overview
+A reduced two-compartment member of the Margaria–Morton family. The
+phosphagenic and glycolytic pathways are lumped into a single non-oxidative
+reservoir $A_P$; the oxidative reservoir $A_O$ has finite capacity and
+first-order replenishment. Five parameters
+$\theta = (M_O, A_{O,\max}, A_{P,\max}, M_R, \eta)$ are estimated from
+$A_P(t)$ alone.
 
-This study evaluates whether Physics-Informed Neural Networks (PINNs) can address the problem of estimating physiological parameters from noisy field-like data in a reduced two-compartment Margaria–Morton bioenergetic model of high-intensity exercise. Four PINN-based approaches are benchmarked against two classical optimization baselines on synthetic data from 50 virtual cyclists across three noise levels (SNR ≈ 40, 30, 20 dB).
+## Experimental controls
 
-The repository enables exact reproduction of all figures and quantitative results reported in the manuscript, including the structural identifiability analysis of Section 4.4.
+Differences between estimators are meaningful only if nothing else differs.
+Seven controls are enforced by `src/mm2c/pipeline.py`:
 
-## Methods compared
+1. one observation grid, shared by every method (`N_OBS = 60` per trial);
+2. one residual definition, shared by every method;
+3. one integrator and one tolerance (`rtol = atol = 1e-6`, justified by a
+   convergence study against a `1e-9` reference — see
+   `scripts/convergence_tolerance.py`);
+4. a common computational budget counted in ODE solves, not wall-clock time;
+5. all random number generators seeded from the athlete index and noise level;
+6. two population baselines that ignore the observations, so that an estimator
+   can be shown to extract individual information;
+7. the Cramér–Rao lower bound, so that an error becomes a statement about
+   statistical efficiency rather than a ranking.
 
-| Method | Description | Manuscript |
-|---|---|---|
-| **PINN (standard)** | Time-only network with composite data + ODE + IC loss | Section 2.3 |
-| **PINN — Multi-task TL** | Pre-train shared weights with per-athlete θ, fine-tune with discriminative LR | Architecture A |
-| **PINN — Conditional TL** | Network conditioned on (t, θ); θ-only fine-tuning with frozen weights | Architecture B |
-| **Surrogate** | LHS-pretrained 4×128 network; θ-only optimization with ODE regularization | Section 3.7 |
-| **Levenberg–Marquardt** | `scipy.optimize.least_squares` with Trust Region Reflective and 8 random restarts | Baseline |
-| **Differential Evolution** | `scipy.optimize.differential_evolution` (best1bin, polish=True) | Baseline |
+Noise is applied to the **observation** of $A_P$, not to the input power.
 
-## Repository structure
-
-```
-.
-├── README.md                       # This file
-├── LICENSE                         # MIT (code)
-├── CITATION.cff                    # Citation metadata
-├── pyproject.toml                  # Package metadata and build configuration
-├── requirements.txt                # Pinned Python dependencies
-├── environment.yml                 # Conda environment specification
-├── .gitignore
-│
-├── src/pinn_bioenergetic/          # Importable Python package
-│   ├── __init__.py
-│   ├── config.py                   # Centralized hyperparameters (single source of truth)
-│   ├── model.py                    # ODE system + simulate()
-│   ├── population.py               # Virtual athlete population + synthetic data
-│   ├── pinn.py                     # Standard PINN architecture + train_pinn()
-│   ├── baselines.py                # Levenberg–Marquardt + Differential Evolution
-│   ├── transfer.py                 # MultiTaskPINN + ConditionalPINN + 6 routines
-│   ├── surrogate.py                # NeuralSurrogate + supervised pre-training
-│   ├── identifiability.py          # θ_id reparameterization for Section 4.4
-│   └── plotting.py                 # Shared figure style and color palette
-│
-├── experiments/                    # Reproducible experiment scripts
-│   ├── run_main_experiment.py            # Figures 1–5, Tables 1–3 (~25–35 min)
-│   ├── run_transfer_multitask.py         # Figure 6 (~30 min)
-│   ├── run_transfer_conditional.py       # Figure 7 (~30 min)
-│   ├── run_surrogate.py                  # Surrogate column of Tables 1–2, Table 6
-│   └── run_identifiability_analysis.py   # Section 4.4 results
-│
-├── docs/
-│   └── reproducibility.md          # Step-by-step reproduction guide
-│
-├── figures/                        # Generated figures (PDF + PNG)
-├── results/                        # Numerical outputs (JSON) + cached weights
-└── data/synthetic/                 # Generated synthetic datasets
-```
-
-## Quick start
-
-### 1. Clone and install
+## Install
 
 ```bash
-git clone https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment.git
-cd pinn-margaria-morton-2compartment
-
-# Create a virtual environment (Python 3.11 recommended)
-python3.11 -m venv venv
-source venv/bin/activate            # On Windows: venv\Scripts\activate
-
-# Install the package in editable mode with all dependencies
-pip install -e .
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Alternatively with conda:
-```bash
-conda env create -f environment.yml
-conda activate pinn-bioenergetic
-pip install -e .
-```
-
-### 2. Verify the installation
-
-```bash
-python -c "import pinn_bioenergetic; print(pinn_bioenergetic.__version__)"
-```
-
-### 3. Reproduce a single experiment
-
-```bash
-python experiments/run_main_experiment.py
-```
-
-Figures will be written to `figures/` and numerical results to `results/`.
+CPU PyTorch is sufficient: each fit is pinned to one thread and parallelism is
+between processes.
 
 ## Reproducing the manuscript
 
-Each script reproduces a specific portion of the manuscript and can be run independently. All scripts use the centralized configuration in `src/pinn_bioenergetic/config.py`, which is set to the values used in the published study.
+Every script writes to `data/` or `figures/` and is resumable: re-running the
+same command skips work already recorded.
 
-| Script | Reproduces | Approx. runtime (CPU) |
-|---|---|---|
-| `run_main_experiment.py` | Figures 1–5, Tables 1–3 | 25–35 min |
-| `run_transfer_multitask.py` | Figure 6 | ~30 min |
-| `run_transfer_conditional.py` | Figure 7 | ~30 min |
-| `run_surrogate.py` | Surrogate column of Tables 1–2 + Table 6 | ~10 min |
-| `run_identifiability_analysis.py` | Section 4.4 | ~10 min (loads cached surrogate) |
+| Manuscript item | Command |
+|---|---|
+| Sec. 3.1, rank criterion | `python3 scripts/identifiability_rank_fispo.py` |
+| Sec. 3.1, Eq. (inversion) | `python3 scripts/identifiability_global_elimination.py` |
+| Sec. 3.1, tool cross-check | `julia scripts/identifiability_global.jl` |
+| Sec. 3.2, Fig. 2a–b | `python3 scripts/fim_analysis.py` |
+| Sec. 3.2, Fig. 2c | `python3 scripts/flat_direction.py` |
+| Sec. 3.3, Tables 3–5 | `python3 -m mm2c.pipeline --athletes 50 --sigma 2 5 10 --budget 4000 --rtol 1e-6 --out data/campaign_main.jsonl` |
+| Sec. 3.3, residual-weight sweep | `python3 scripts/run_sweep.py --param w_r --values 0.03 0.1 0.3 1 3 --athletes 0-14 --out data/sweep_residual_weight.jsonl` |
+| Sec. 3.4, Table 6 | `python3 scripts/run_protocol_design.py 15` |
+| Sec. 3.5, tolerance | `python3 scripts/convergence_tolerance.py --athletes 3` |
+| Figs. 2–4 | `python3 scripts/make_figures.py` |
 
-Total runtime for full reproduction: **roughly 2 hours on a 2-core CPU**. No GPU required.
+`scripts/analyse_sweep.py` prints the summary table and the paired Friedman and
+Wilcoxon tests for any sweep file.
 
-For a quick smoke test, see `docs/reproducibility.md`.
+The shipped `data/` files are the exact outputs used in the manuscript, so
+`make_figures.py` reproduces Figures 2–4 without re-running any estimation.
 
-## Reproducibility notes
+## Layout
 
-- All random seeds are fixed; with the same Python + dependency versions, results are bit-identical.
-- The virtual population is generated with `seed = 42` (multivariate-normal sampler with rank correlations defined in `src/pinn_bioenergetic/population.py`).
-- PINN training uses deterministic seeds derived from `(athlete_id, noise_level)`.
-- Transfer-learning subsampling repetitions use seeds 0–4 within each `(target, frac)` cell.
-- Numerical integration uses SciPy `solve_ivp` with the adaptive Dormand–Prince method (RK45, `rtol=atol=1e-7`) and an exhaustion event at `A_P < 0.5 J`.
-
-### Synthetic-data note
-
-All four methods (PINN, LM, DE, surrogate) are evaluated on the same canonical virtual population (`gen_population` in `population.py`), so per-athlete error metrics are directly comparable across methods. The surrogate experiments use a dedicated synthetic-data generator (`gen_data_intermittent` in `surrogate.py`) that restricts evaluation to a single intermittent protocol (30 s / 30 s at 130 % / 50 % CP, fixed 600 s window), matched to the surrogate's pre-training distribution. The standard PINN, LM, and DE baselines use the two-protocol `gen_data` from `population.py` (Protocol A + Protocol B with exhaustion event).
-
-## Software environment
-
-| Package      | Version   |
-|--------------|-----------|
-| Python       | 3.11      |
-| numpy        | 1.26.4    |
-| scipy        | 1.17.1    |
-| matplotlib   | 3.10.9    |
-| torch        | 2.11.0    |
-
-Full pinned versions: `requirements.txt`. These versions match the environment used to generate the figures in the manuscript.
-
-## Citation
-
-If you use this code or data, please cite the article:
-
-```bibtex
-@unpublished{Gomez2026PINN,
-  author  = {Gomez, Thomas},
-  title   = {Physics-Informed Neural Networks for Parameter Estimation in a
-             Two-Compartment Bioenergetic Model of Critical Power},
-  year    = {2026},
-  note    = {Manuscript submitted for peer review}
-}
+```
+src/mm2c/pipeline.py   model, population, synthetic data, the three estimators,
+                       the two baselines, the Fisher information and the CRLB
+scripts/               one script per manuscript item (table above)
+data/                  results used in the manuscript
+figures/               figures as they appear in the manuscript
 ```
 
-A `CITATION.cff` is included for GitHub's citation generator.
+## Caveat
+
+All data here are synthetic: the generating model is assumed to be the true
+one. Nothing in this repository has been validated against measurements from
+human participants.
 
 ## License
 
-- **Source code**: MIT License (see `LICENSE`).
-- **Synthetic data and generated figures**: Creative Commons Attribution 4.0 (CC BY 4.0).
-
-## Author
-
-**Thomas Gomez**
-Université Paris-Saclay, Évry, France
-Icam, Grand Paris Sud, France
-[thomas.gomez@univ-evry.fr](mailto:thomas.gomez@univ-evry.fr)
-
-## Acknowledgments
-
-This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
-
-## Contributing
-
-This repository accompanies a published study; active development is not planned. Reproducibility issues and bug reports are welcome via GitHub Issues. For methodological questions, please contact the corresponding author.
+MIT, see `LICENSE`.

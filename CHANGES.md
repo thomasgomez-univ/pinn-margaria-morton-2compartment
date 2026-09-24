@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] — 2026-09-24
+
+Release accompanying the revised manuscript:
+
+> Gomez, T. (2026). *From identifiability to protocol design in a two-compartment
+> bioenergetic model of critical power: a simulation study.*
+
+This version **supersedes 1.0.0 and is not backward compatible with it**.
+Results produced by 1.0.0 cannot be reproduced here and should not be used.
+
+### Fixed
+- **ODE residual of the physics-informed network.** The residual on the
+  non-oxidative compartment divided the inter-compartment flow by
+  `A_O_max` instead of `A_P_max`. The error affected both the training loss
+  and the fine-tuning loss (`src/pinn_bioenergetic/pinn.py`, four sites in
+  1.0.0). On the exact trajectory the erroneous residual has an RMS value of
+  1.19 (20.9 % in relative terms) instead of zero, so the true parameter
+  vector was penalized by the physics loss. The error factor
+  `A_P_max / A_O_max` ranges over [0.78, 2.20] across the virtual population,
+  median 1.31.
+
+### Changed
+- **Noise model.** In 1.0.0 the perturbation was applied to the input power
+  while every method was fitted to noiseless observations of `A_P`. The
+  reported robustness therefore described sensitivity to input error, not to
+  measurement noise. Noise is now applied to the observation of `A_P`, with
+  the standard deviation propagated from `sigma_P` by Monte Carlo.
+- **Experimental controls.** Estimators now share one observation grid, one
+  residual definition, one integrator and tolerance, and a computational
+  budget counted in ODE solves. See the README.
+- **Integration tolerance.** Raised from `1e-4` to `1e-6`, justified by a
+  convergence study against a `1e-9` reference: at `1e-4` the estimates
+  deviate from the reference by 2.64 %, which exceeds the estimation error
+  itself.
+- **Integration scheme.** Piecewise integration between the switching instants
+  of the piecewise-constant input replaces a forced `max_step`.
+
+### Added
+- Two population baselines that ignore the observations.
+- Fisher information matrix, eigenvalue spectrum, least constrained direction
+  and Cramér–Rao lower bound.
+- Global structural identifiability by differential elimination, with an
+  explicit inversion of the parameters from the coefficients of the
+  input–output relation.
+- Protocol design: seventeen candidate designs compared at a fixed total
+  observation budget.
+- Sweep of the residual weight over two decades.
+
+### Removed
+- The learned trajectory surrogate, the multi-task and conditional transfer
+  learning experiments, and the associated modules. They are not reported in
+  the revised manuscript. Version 1.0.0 remains permanently archived at
+  <https://doi.org/10.5281/zenodo.20076199> for the record.
+
 ## [1.0.0] — 2026-05-06
 
 Initial release accompanying the manuscript:

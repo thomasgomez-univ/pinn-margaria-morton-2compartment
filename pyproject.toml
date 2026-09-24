@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pinn-bioenergetic"
-version = "1.0.0"
-description = "Physics-Informed Neural Networks for parameter estimation in a reduced two-compartment Margaria-Morton bioenergetic model of critical power."
+name = "mm2c"
+version = "2.0.0"
+description = "Structural and practical identifiability, estimator efficiency against the Cramer-Rao bound, and protocol design for a reduced two-compartment Margaria-Morton bioenergetic model of critical power."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
@@ -33,10 +33,11 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "numpy>=1.26,<2.0",
+    "numpy>=1.26",
     "scipy>=1.12",
     "matplotlib>=3.8",
     "torch>=2.0",
+    "sympy>=1.12",
 ]
 
 [project.optional-dependencies]
@@ -45,6 +46,7 @@ dev = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [project.urls]
 Repository = "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
+# A remplacer par le DOI de la version 2.0.0 apres la release Zenodo :
 Software = "https://doi.org/10.5281/zenodo.20076199"
 Article = "https://doi.org/PLACEHOLDER"
 
