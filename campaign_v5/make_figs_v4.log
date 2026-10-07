@@ -1,0 +1,8 @@
+figures ecrites dans /sessions/rcw-01846u5jotndrut5uhfztewq/mnt/Work_Claude/Revision_v2/figures
+pop      med err = [13.53 25.13 12.9  47.94  5.19]
+LM       med err = [0.31 2.97 0.03 2.88 0.14]
+DE       med err = [ 9.49 79.91  0.89 41.29  5.16]
+PINN     med err = [ 38.22 169.95   8.66 160.25  39.7 ]
+PINN_v4  med err = [ 6.1  34.86  0.7  28.2   3.01]
+CRLB = [0.47 4.27 0.05 3.61 0.21]
+corr flat dir PINN v4 = -0.85

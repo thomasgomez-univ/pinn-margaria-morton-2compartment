@@ -1,0 +1,13 @@
+i= 2 graine 1 : CP err 0.675 % (58 s)
+i= 2 graine 2 : CP err 0.985 % (117 s)
+i= 5 graine 1 : CP err 2.715 % (175 s)
+i= 5 graine 2 : CP err 1.802 % (1300 s)
+i= 8 graine 1 : CP err 0.896 % (2588 s)
+i= 8 graine 2 : CP err 0.169 % (2651 s)
+i=11 graine 1 : CP err 0.030 % (2747 s)
+i=11 graine 2 : CP err 0.206 % (2866 s)
+i=14 graine 1 : CP err 2.366 % (2927 s)
+i=14 graine 2 : CP err 1.395 % (2992 s)
+i=17 graine 1 : CP err 0.446 % (3067 s)
+i=17 graine 2 : CP err 0.063 % (3151 s)
+TERMINE de_seeds_v5 shard 2

@@ -1,0 +1,32 @@
+=== (1) campagne principale mer.  7 oct. 2026 09:48:39 CEST ===
+Coeurs performance detectes : 8
+Mode : equilibre  ->  6 processus, priorite abaissee
+150 executions au total.
+Estimation : 100 min.
+
+dependances : OK
+
+  processus 0 : athletes 0 a 8
+  processus 1 : athletes 9 a 17
+  processus 2 : athletes 18 a 25
+  processus 3 : athletes 26 a 33
+  processus 4 : athletes 34 a 41
+  processus 5 : athletes 42 a 49
+
+Avancement :  cat camp_v3_*.jsonl | wc -l      (150 = termine)
+Detail     :  tail -f camp_v3_0.log
+Arret      :  pkill -f pipeline_v3
+Termine. Renvoyez les fichiers camp_v3_*.jsonl
+=== (2) PINN v4 mer.  7 oct. 2026 11:01:34 CEST ===
+mode --equilibre : 6 processus (nice -n 10)
+lance. Suivi :  tail -f camp_v4_*.log     Avancement :  cat camp_v4_*.jsonl | wc -l
+=== (3a) FIM, protocoles, rep_lm mer.  7 oct. 2026 11:22:58 CEST ===
+mode --equilibre : 6 processus
+phase 1 + rep_lm lances. Quand rep_lm_*.log affichent TERMINE, lancez :  bash run_suite.sh --equilibre
+=== (3b) crime inverse, balayage w_r mer.  7 oct. 2026 14:21:55 CEST ===
+lances : 3 shards inverse_crime, 3 shards wr_sweep. Suivi : tail -f *.log
+=== (3c) mauvaise specification mer.  7 oct. 2026 14:39:10 CEST ===
+lances : 3 shards AR1, 3 shards DRIFT (20 athletes chacun, LM + DE + PINN v4). Suivi : tail -f misspec_*.log
+=== (3d) relation puissance-duree mer.  7 oct. 2026 15:03:59 CEST ===
+=== (4) prediction mer.  7 oct. 2026 15:04:01 CEST ===
+TERMINE campagne v5 mer.  7 oct. 2026 15:04:45 CEST :      150 runs principaux,      150 runs PINN v4

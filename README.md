@@ -1,14 +1,17 @@
-# From identifiability to protocol design in a two-compartment bioenergetic model of critical power
+# What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study
 
-Code and synthetic data accompanying the manuscript
+Code, synthetic data and analysis outputs accompanying the manuscript
 
-> Gomez, T. (2026). *From identifiability to protocol design in a two-compartment
-> bioenergetic model of critical power: a simulation study.*
+> Gomez, T. (2026). *What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study.* Submitted to PeerJ.
 
-> **Version 2.0.0 supersedes version 1.0.0.** The ODE residual used by the
-> physics-informed network in v1.0.0 was incorrect, and the experimental design
-> lacked the controls listed below. Results obtained with v1.0.0 are not
-> reproducible with this version and should not be used. See `CHANGES.md`.
+> **Version 3.0.0 is the version used for the submitted manuscript.** It adds
+> `campaign_v5/`, the complete estimation campaign and every complementary
+> analysis reported in the article and its Supplemental Article S1, together
+> with their raw outputs. Version 2.0.0 (`src/mm2c/`, `scripts/`, `data/`) is
+> kept unchanged for the structural-identifiability scripts, which do not
+> depend on the virtual population; its estimation results are superseded.
+> Version 1.0.0 contained an incorrect ODE residual and must not be used.
+> See `CHANGES.md`.
 
 ## The model
 
@@ -48,7 +51,43 @@ pip install -r requirements.txt
 CPU PyTorch is sufficient: each fit is pinned to one thread and parallelism is
 between processes.
 
-## Reproducing the manuscript
+## Reproducing the submitted manuscript (version 3.0.0)
+
+All quantities of the submitted manuscript come from `campaign_v5/` (estimation,
+Fisher information, prediction, departures from the model, protocol design,
+oxygen-uptake observables) and from the population-independent structural
+analyses of `scripts/`. Shipped `.jsonl`, `.json`, `.npz` and `.log` files are
+the exact outputs used in the article, so the analysis scripts (`tables_v4.py`,
+`make_figs_v4.py`, the `--analyse` modes and `analyse_*.py`) reproduce the
+reported numbers and figures without re-running any estimation. Scripts are
+resumable; file names keep their historical `v3`/`v4` prefixes. Code comments
+and the two working notes (`LISEZMOI_v5.md`, `complements_v4/LISEZMOI_complements.md`)
+are in French.
+
+| Manuscript item | Script(s), run from `campaign_v5/` unless stated |
+|---|---|
+| Sec. 3.1, structural rank and closed-form inversion | `scripts/identifiability_rank_fispo.py`, `scripts/identifiability_global_elimination.py`, `scripts/identifiability_global.jl` (repository root) |
+| Table 2, Fisher blocks (A_P, VO2, T_lim) | `complements_v4/fim_vo2_single_v5.py`, `complements_v4/vo2_tlim_v5.py` |
+| Sec. 3.2, Fig. 2 | `complements_v4/fim_v3.py`, then `make_figs_v4.py` |
+| Sec. 3.2, profile likelihood, Fig. S4 | `complements_v4/profile_v5.py 0/1/2`, `complements_v4/profile_rebuild_v5.py` |
+| Sec. 3.3, Tables 3–4, Figs. 3–4, Table S4, Fig. S1 | `run_campagne.sh` (`pipeline_v3.py`), `run_v4.sh` (`pipeline_v4.py`, corrected network), then `tables_v4.py`, `make_figs_v4.py`, `cos_align_v5.py` |
+| Sec. 3.3, repeated realizations | `complements_v4/rep_lm_v3.py` |
+| Sec. 3.3, seed variability (DE, network) | `run_rev2.sh`; `complements_v4/de_seeds_v5.py --analyse`, `complements_v4/pinn_seeds_v5.py` |
+| Sec. 2.5 and S4, inverse-crime control, residual-weight sweep | `complements_v4/inverse_crime_v3.py`, `complements_v4/wr_sweep_v4.py` |
+| Table S2, network diagnostic | `pinn_diag.py` |
+| Sec. 3.4, Table 5 | `prediction_v4.py` |
+| Sec. 3.5, Tables S5–S6 | `complements_v4/misspec_v4.py`, `analyse_misspec.py`, `misspec_extra_v5.py`, `gls_ar1_v5.py --analyse` |
+| Sec. 3.6, Table S3 | `complements_v4/protocoles_v3.py`, `protocoles_extra_v5.py`, `analyse_protocoles_v5.py`, `analyse_protocoles_v5b.py` |
+| Section S6, Fig. S2 (power–duration relation) | `complements_v4/pd_curve_v4.py` |
+| Section S7, Fig. S3 (simulated oxygen kinetics) | `complements_v4/vo2_kinetics_v5.py` |
+
+The full campaign is chained by `run_v5_all.sh` (3–5 h on a laptop, CPU) and
+the second-round complements by `run_rev2.sh` (about 3 h). The virtual
+population is `pop_recal.npy` (seed 7). Figures are written to `figures/`.
+
+## Version 2.0.0 material
+
+### Reproducing the version 2.0.0 results
 
 Every script writes to `data/` or `figures/` and is resumable: re-running the
 same command skips work already recorded.
@@ -69,17 +108,18 @@ same command skips work already recorded.
 `scripts/analyse_sweep.py` prints the summary table and the paired Friedman and
 Wilcoxon tests for any sweep file.
 
-The shipped `data/` files are the exact outputs used in the manuscript, so
-`make_figures.py` reproduces Figures 2–4 without re-running any estimation.
+These commands reproduce the version 2.0.0 results, which the submitted
+manuscript no longer uses.
 
 ## Layout
 
 ```
+campaign_v5/           version 3.0.0: campaign and complements of the submitted manuscript
 src/mm2c/pipeline.py   model, population, synthetic data, the three estimators,
                        the two baselines, the Fisher information and the CRLB
 scripts/               one script per manuscript item (table above)
-data/                  results used in the manuscript
-figures/               figures as they appear in the manuscript
+data/                  results of version 2.0.0 (superseded)
+figures/               figures of the submitted manuscript and supplement (v3.0.0)
 ```
 
 ## Caveat

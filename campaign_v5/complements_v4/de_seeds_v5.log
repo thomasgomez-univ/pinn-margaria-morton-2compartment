@@ -1,0 +1,6 @@
+graine 0 : CP mediane 0.99 [IQR 0.68-1.21]  W' 3.19
+graine 1 : CP mediane 0.70 [IQR 0.43-2.44]  W' 1.55
+graine 2 : CP mediane 0.84 [IQR 0.30-1.47]  W' 1.17
+ecart-type inter-graines de l'erreur CP par athlete : mediane 0.61 pt, max 7.51 pt ; W' : 1.55 / 5.12
+mediane CP sur les 3 graines : [0.991, 0.7, 0.839] -> ecart-type de la mediane 0.146 pt
+n athletes : 20

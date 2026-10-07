@@ -1,0 +1,7 @@
+=== (1) PINN v4, graines 1-2, sigma 5 W : 6 shards  mer.  7 oct. 2026 17:54:50 CEST ===
+pre-rempli : 50 runs seed 0 par shard
+=== (2) DE graines 1-2 : 3 shards  mer.  7 oct. 2026 17:54:50 CEST ===
+=== (3) GLS AR(1) : 3 shards  mer.  7 oct. 2026 18:49:01 CEST ===
+=== (4) profils de vraisemblance, athletes 0 1 2  mer.  7 oct. 2026 18:49:01 CEST ===
+=== syntheses  mer.  7 oct. 2026 18:56:03 CEST ===
+TERMINE run_rev2 mer.  7 oct. 2026 18:56:04 CEST

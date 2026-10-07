@@ -1,0 +1,9 @@
+<repo>/campaign_v5/complements_v4/pipeline_v4.py:78: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:837.)
+  if parts: return float(ld), float(lr_), float(li)
+i= 1  LM CP-err ... fait (208 s)
+i= 4  LM CP-err ... fait (485 s)
+i= 7  LM CP-err ... fait (626 s)
+i=10  LM CP-err ... fait (756 s)
+i=13  LM CP-err ... fait (976 s)
+TERMINE inverse_crime shard 1

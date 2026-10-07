@@ -1,0 +1,7 @@
+graines [0, 1, 2], athletes complets 50
+graine 0 : CP mediane 1.36 [IQR 0.53-2.26]  W' 2.75 [1.19-4.43]
+graine 1 : CP mediane 1.24 [IQR 0.52-2.27]  W' 2.61 [1.22-4.47]
+graine 2 : CP mediane 1.38 [IQR 0.68-2.31]  W' 2.11 [0.90-3.89]
+ecart-type inter-graines par athlete : CP mediane 0.27 pt (max 1.86) ; W' 0.65 (max 3.03)
+medianes CP par graine [1.356, 1.242, 1.377] ; ecart-type 0.073 pt ; mediane des medianes par athlete 1.32
+athletes dont l'ecart-type inter-graines sur CP depasse 1 point : 1 / 50

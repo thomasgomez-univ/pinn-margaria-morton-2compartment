@@ -1,18 +1,18 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite both the article and this repository as below."
 type: software
-title: "From identifiability to protocol design in a two-compartment bioenergetic model of critical power: a simulation study"
-abstract: "Source code, synthetic data and reproduction scripts accompanying the manuscript on structural and practical identifiability, estimator efficiency against the Cramer-Rao bound, and protocol design for a reduced two-compartment Margaria-Morton bioenergetic model of high-intensity exercise. Supersedes version 1.0.0, whose ODE residual was incorrect."
+title: "What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model - a simulation study"
+abstract: "Source code, synthetic data, raw outputs and analysis scripts accompanying the manuscript on what a digital twin of critical power can report: structural and practical identifiability of a reduced two-compartment Margaria-Morton model, estimator efficiency against the Cramer-Rao bound (Levenberg-Marquardt, Differential Evolution, physics-informed network), out-of-sample prediction, departures from the generating model, and identifiability under oxygen uptake and time to exhaustion. Supersedes versions 1.0.0 and 2.0.0."
 authors:
   - family-names: "Gomez"
     given-names: "Thomas"
     email: "thomas.gomez@univ-evry.fr"
     affiliation: "Université Paris-Saclay, Évry, France; Icam, Grand Paris Sud, France"
     orcid: "https://orcid.org/0000-0003-2017-3446"
-version: "2.0.0"
-# DOI a remplacer par celui de la nouvelle version, apres la release Zenodo :
+version: "3.0.0"
+# Version DOI of 1.0.0; to be replaced by the DOI Zenodo assigns to 3.0.0 :
 doi: 10.5281/zenodo.20076199
-date-released: "2026-09-24"
+date-released: "2026-10-07"
 license: MIT
 repository-code: "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
 keywords:
@@ -24,13 +24,15 @@ keywords:
   - structural identifiability
   - exercise physiology
   - cycling
+  - digital twin
+  - Fisher information
 
 preferred-citation:
   type: article
   authors:
     - family-names: "Gomez"
       given-names: "Thomas"
-  title: "From identifiability to protocol design in a two-compartment bioenergetic model of critical power: a simulation study"
-  journal: ""
+  title: "What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model - a simulation study"
+  journal: "PeerJ"
   year: 2026
-  notes: "Under review"
+  notes: "Submitted"

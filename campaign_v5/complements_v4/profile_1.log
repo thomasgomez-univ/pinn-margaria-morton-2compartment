@@ -1,0 +1,46 @@
+ath 1 A_Omax = 3.1321e+05 : chi2 - min = -0.000
+ath 1 A_Omax = 3.1604e+05 : chi2 - min = 0.163
+ath 1 A_Omax = 3.1889e+05 : chi2 - min = 0.649
+ath 1 A_Omax = 3.2177e+05 : chi2 - min = 1.455
+ath 1 A_Omax = 3.2467e+05 : chi2 - min = 2.577
+ath 1 A_Omax = 3.276e+05 : chi2 - min = 4.013
+ath 1 A_Omax = 3.3056e+05 : chi2 - min = 5.758
+ath 1 A_Omax = 3.3355e+05 : chi2 - min = 7.809
+ath 1 A_Omax = 3.3656e+05 : chi2 - min = 10.163
+ath 1 A_Omax = 3.396e+05 : chi2 - min = 12.815
+ath 1 A_Omax = 3.4266e+05 : chi2 - min = 15.762
+ath 1 A_Omax = 3.104e+05 : chi2 - min = 0.164
+ath 1 A_Omax = 3.0763e+05 : chi2 - min = 0.650
+ath 1 A_Omax = 3.0487e+05 : chi2 - min = 1.453
+ath 1 A_Omax = 3.0215e+05 : chi2 - min = 2.575
+ath 1 A_Omax = 2.9944e+05 : chi2 - min = 4.020
+ath 1 A_Omax = 2.9676e+05 : chi2 - min = 5.791
+ath 1 A_Omax = 2.9411e+05 : chi2 - min = 7.890
+ath 1 A_Omax = 2.9148e+05 : chi2 - min = 10.320
+ath 1 A_Omax = 2.8887e+05 : chi2 - min = 13.084
+ath 1 A_Omax = 2.8628e+05 : chi2 - min = 16.184
+ath 1 A_Omax : IC profil 95 % [302146.71134046547, 324672.7299417179] ; IC Cramer-Rao [299413.06129054684, 327001.49030869926] ; vrai 3.2026e+05
+ath 1 M_R = 0.013359 : chi2 - min = -0.000
+ath 1 M_R = 0.013446 : chi2 - min = 0.164
+ath 1 M_R = 0.013532 : chi2 - min = 0.654
+ath 1 M_R = 0.01362 : chi2 - min = 1.463
+ath 1 M_R = 0.013708 : chi2 - min = 2.593
+ath 1 M_R = 0.013796 : chi2 - min = 4.046
+ath 1 M_R = 0.013885 : chi2 - min = 5.825
+ath 1 M_R = 0.013975 : chi2 - min = 7.931
+ath 1 M_R = 0.014065 : chi2 - min = 10.365
+ath 1 M_R = 0.014156 : chi2 - min = 13.131
+ath 1 M_R = 0.014247 : chi2 - min = 16.228
+ath 1 M_R = 0.013274 : chi2 - min = 0.164
+ath 1 M_R = 0.013188 : chi2 - min = 0.653
+ath 1 M_R = 0.013104 : chi2 - min = 1.465
+ath 1 M_R = 0.01302 : chi2 - min = 2.596
+ath 1 M_R = 0.012936 : chi2 - min = 4.045
+ath 1 M_R = 0.012853 : chi2 - min = 5.808
+ath 1 M_R = 0.012771 : chi2 - min = 7.882
+ath 1 M_R = 0.012689 : chi2 - min = 10.264
+ath 1 M_R = 0.012608 : chi2 - min = 12.949
+ath 1 M_R = 0.012527 : chi2 - min = 15.936
+ath 1 M_R : IC profil 95 % [0.013019866819330051, 0.013707608660070508] ; IC Cramer-Rao [0.012938117450098366, 0.013780508200605548] ; vrai 0.013126
+figure non produite : not enough arguments for format string
+TERMINE profile_v5

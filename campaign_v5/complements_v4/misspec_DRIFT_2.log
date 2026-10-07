@@ -1,0 +1,10 @@
+<repo>/campaign_v5/complements_v4/pipeline_v4.py:78: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:837.)
+  if parts: return float(ld), float(lr_), float(li)
+DRIFT i= 2  LM CP 3.07% DE CP 2.77% PINN_v4 CP 2.75%  rmse_true 1310  (153 s)
+DRIFT i= 5  LM CP 3.13% DE CP 2.60% PINN_v4 CP 0.84%  rmse_true 1315  (342 s)
+DRIFT i= 8  LM CP 2.49% DE CP 3.35% PINN_v4 CP 0.74%  rmse_true 1257  (495 s)
+DRIFT i=11  LM CP 1.94% DE CP 2.27% PINN_v4 CP 0.38%  rmse_true 1516  (722 s)
+DRIFT i=14  LM CP 2.64% DE CP 3.04% PINN_v4 CP 1.77%  rmse_true 1284  (889 s)
+DRIFT i=17  LM CP 3.18% DE CP 2.27% PINN_v4 CP 1.24%  rmse_true 1598  (1336 s)
+TERMINE misspec DRIFT shard 2

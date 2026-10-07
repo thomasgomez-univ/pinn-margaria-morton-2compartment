@@ -1,0 +1,32 @@
+athlete 0 : T_A 159 s, T_B 210 s, validation T_lim 3.35e-07
+athlete 1 : T_A 242 s, T_B 509 s, validation T_lim 3.37e-07
+athlete 2 : T_A 187 s, T_B 327 s, validation T_lim 3.38e-07
+athlete 3 : T_A 125 s, T_B 146 s, validation T_lim 3.88e-07
+athlete 4 : T_A 232 s, T_B 510 s, validation T_lim 3.40e-07
+athlete 5 : T_A 203 s, T_B 329 s, validation T_lim 3.41e-07
+athlete 6 : T_A 200 s, T_B 388 s, validation T_lim 3.38e-07
+athlete 7 : T_A 171 s, T_B 266 s, validation T_lim 3.55e-07
+athlete 8 : T_A 204 s, T_B 329 s, validation T_lim 3.53e-07
+athlete 9 : T_A 165 s, T_B 210 s, validation T_lim 3.39e-07
+
+validation de la derivee implicite de T_lim : erreur relative max 3.88e-07 (hors essais ou l'epuisement tombe sur une commutation : [(4, 'B', 509.99191324338994, 0.9992307705500791)])
+
+== Blocs normalises, mediane sur 10 athletes ==
+observable             rang  lam_min/lam_max   proj CP   proj W'   v_min (max comp = 1)
+A_P                       5   6.12e-06     0.008     0.008   [-0.07, 1.0, 0.0, -0.82, 0.01]
+VO2                       4   2.41e-17     0.437     0.500   [1.0, -0.0, 1.0, 0.0, -0.0]
+Tlim                      2   0.00e+00     0.012     0.236   [0.12, 0.3, 0.29, 0.03, -0.22]
+VO2+Tlim r=0.2            5   5.07e-06     0.020     0.003   [-0.04, 1.0, -0.0, -0.88, -0.0]
+VO2+Tlim r=1              5   1.52e-05     0.046     0.025   [-0.02, -0.52, -0.06, 1.0, 0.02]
+VO2+Tlim r=5              5   1.55e-05     0.047     0.027   [-0.02, -0.5, -0.06, 1.0, 0.02]
+
+== Bornes de Cramer-Rao absolues (ecart-type relatif minimal, %), mediane sur 10 athletes ==
+observable                                   M_O   A_Omax   A_Pmax      M_R      eta    CP     W'
+A_P (sigma_AP v5, 60 pts)                   0.43     3.90     0.05     3.23     0.20    0.11   0.17
+VO2 100 mL/min                              2.16    49.93     2.16    73.60     1.86    9.68   1.26
+VO2+Tlim 100 mL/min, cv_T 3 %               4.67    46.54     6.26    67.87     1.70    4.84   4.59
+VO2+Tlim 100 mL/min, cv_T 10 %              5.37    48.59     6.98    73.01     1.82    5.41   5.32
+VO2 200 mL/min                              4.33    99.86     4.33   147.20     3.72   19.37   2.53
+VO2+Tlim 200 mL/min, cv_T 3 %               8.74    86.71    10.81   114.20     2.93    8.20   7.93
+VO2+Tlim 200 mL/min, cv_T 10 %              9.80    95.74    13.18   142.68     3.56   10.15   9.72
+TERMINE vo2_tlim_v5

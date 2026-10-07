@@ -1,0 +1,28 @@
+v3 : 150 runs ; v4 : 150 runs
+
+== Erreur mediane (%%) sur CP et W' vrais ==
+methode      CP s=2   CP s=5  CP s=10   W' s=2   W' s=5  W' s=10
+LM             0.02     0.07     0.09     0.05     0.11     0.28
+DE             0.68     0.78     1.24     2.66     4.04     2.87
+PINN           3.23     3.11     3.70    53.74    54.34    51.20
+PINN_v4        1.23     1.36     1.47     2.69     2.75     2.47
+
+== Erreur mediane par parametre (%%), sigma = 5 W ==
+methode         M_O   A_Omax   A_Pmax      M_R      eta
+LM             0.31     2.97     0.03     2.88     0.14
+DE             9.49    79.91     0.89    41.29     5.16
+PINN          38.22   169.95     8.66   160.25    39.70
+PINN_v4        6.10    34.86     0.70    28.20     3.01
+CRLB           0.47     4.27     0.05     3.61     0.21
+
+== Efficacite par athlete (mediane |err|/sigma_CR / 0.6745) et couverture 1.96 sigma_CR, sigma = 5 W ==
+LM         eff=[1.01, 0.99, 0.86, 1.11, 1.12]  couv=[94.0, 94.0, 96.0, 96.0, 98.0]
+PINN       eff=[123.59, 67.34, 265.65, 74.33, 277.7]  couv=[0.0, 0.0, 2.0, 8.0, 0.0]
+PINN_v4    eff=[21.96, 13.6, 20.82, 12.01, 21.34]  couv=[2.0, 14.0, 8.0, 10.0, 2.0]
+
+== Saturation des bornes (%% d'estimations a < 2 %% de la boite) ==
+PINN       {'M_O': 0.0, 'A_Omax': 0.0, 'A_Pmax': 9.0, 'M_R': 0.0, 'eta': 75.0}
+PINN_v4    {'M_O': 0.0, 'A_Omax': 0.0, 'A_Pmax': 0.0, 'M_R': 0.0, 'eta': 0.0}
+
+== PINN v4 : RMSE d'ajustement / RMSE(theta vrai) : mediane 3.64, IQR [2.13, 7.14], max 39.48 ==
+   temps median 50 s, max 56 s

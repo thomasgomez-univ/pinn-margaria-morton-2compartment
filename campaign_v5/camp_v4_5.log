@@ -1,0 +1,29 @@
+shard 5/6 : 25 runs a faire -> camp_v4_5.jsonl
+<repo>/campaign_v5/pipeline_v4.py:78: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:837.)
+  if parts: return float(ld), float(lr_), float(li)
+  i= 1 s=10.0 k=0  eta=0.256  rmse=   562 (vrai  193)    54s
+  i= 3 s=10.0 k=0  eta=0.234  rmse=   258 (vrai  158)    52s
+  i= 5 s=10.0 k=0  eta=0.249  rmse=   453 (vrai  242)    47s
+  i= 7 s=10.0 k=0  eta=0.253  rmse=   442 (vrai  171)    49s
+  i= 9 s=10.0 k=0  eta=0.266  rmse=   206 (vrai  178)    55s
+  i=11 s=10.0 k=0  eta=0.247  rmse=   947 (vrai  226)    50s
+  i=13 s=10.0 k=0  eta=0.249  rmse=   424 (vrai  187)    49s
+  i=15 s=10.0 k=0  eta=0.246  rmse=   238 (vrai  209)    49s
+  i=17 s=10.0 k=0  eta=0.255  rmse=   532 (vrai  208)    48s
+  i=19 s=10.0 k=0  eta=0.222  rmse=   489 (vrai  186)    52s
+  i=21 s=10.0 k=0  eta=0.260  rmse=   352 (vrai  209)    52s
+  i=23 s=10.0 k=0  eta=0.240  rmse=   839 (vrai  265)    53s
+  i=25 s=10.0 k=0  eta=0.253  rmse=   905 (vrai  231)    51s
+  i=27 s=10.0 k=0  eta=0.246  rmse=   337 (vrai  151)    51s
+  i=29 s=10.0 k=0  eta=0.262  rmse=   458 (vrai  239)    51s
+  i=31 s=10.0 k=0  eta=0.235  rmse=   477 (vrai  314)    50s
+  i=33 s=10.0 k=0  eta=0.231  rmse=   451 (vrai  244)    46s
+  i=35 s=10.0 k=0  eta=0.250  rmse=  1159 (vrai  267)    48s
+  i=37 s=10.0 k=0  eta=0.254  rmse=   883 (vrai  224)    51s
+  i=39 s=10.0 k=0  eta=0.264  rmse=   294 (vrai  185)    52s
+  i=41 s=10.0 k=0  eta=0.240  rmse=   437 (vrai  208)    51s
+  i=43 s=10.0 k=0  eta=0.261  rmse=   496 (vrai  182)    52s
+  i=45 s=10.0 k=0  eta=0.233  rmse=   256 (vrai  183)    46s
+  i=47 s=10.0 k=0  eta=0.268  rmse=   187 (vrai  174)    45s
+  i=49 s=10.0 k=0  eta=0.239  rmse=  2453 (vrai  180)    45s

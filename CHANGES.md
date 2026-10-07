@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] — 2026-10-07
+
+Release accompanying the manuscript submitted to PeerJ:
+
+> Gomez, T. (2026). *What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study.*
+
+Version 2.0.0 was tagged locally but never archived; 3.0.0 is the first
+archived release since 1.0.0.
+
+### Added
+- `campaign_v5/`: complete estimation campaign (Levenberg–Marquardt,
+  Differential Evolution, physics-informed network as submitted, two
+  population baselines) and corrected physics-informed network, with raw
+  outputs (`camp_v3_*.jsonl`, `camp_v4_*.jsonl`) and analysis scripts.
+- `campaign_v5/complements_v4/`: Fisher information and least constrained
+  direction; profile likelihood of `A_O_max` and `M_R`; practical
+  identifiability under oxygen uptake and time to exhaustion; repeated
+  realizations; seed variability of DE and of the network; inverse-crime
+  control; residual-weight sweep; departures from the generating model
+  (AR(1) noise, efficiency drift) with generalized least squares; protocol
+  design (24 designs); power–duration relation; simulated oxygen kinetics.
+- Figures of the submitted manuscript and supplement in `figures/`.
+
+### Changed
+- **Virtual population** recalibrated on critical power
+  (N(300, 45) W truncated to 216–402 W) and on the steady oxidative fraction
+  (U[0.78, 0.88]) instead of `M_O * eta` (`pop_recal.npy`, seed 7).
+- **Noise calibration.** The standard deviation of the `A_P` observation
+  propagated from the power-meter noise is computed on the exact power
+  (switching instants preserved) and only on grid points before the earliest
+  exhaustion of the noisy realizations. The earlier calibration inflated it
+  about 2.5-fold for the intermittent protocol at 5 W.
+- **Physics-informed network (corrected version).** Fitted to both protocols
+  with a shared parameter vector; periodic input features; initial condition
+  imposed by the ansatz; parameters frozen during the first 2000 iterations;
+  300 collocation points per protocol.
+
 ## [2.0.0] — 2026-09-24
 
 Release accompanying the revised manuscript:

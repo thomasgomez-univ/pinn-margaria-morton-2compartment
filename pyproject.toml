@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mm2c"
-version = "2.0.0"
+version = "3.0.0"
 description = "Structural and practical identifiability, estimator efficiency against the Cramer-Rao bound, and protocol design for a reduced two-compartment Margaria-Morton bioenergetic model of critical power."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -46,7 +46,7 @@ dev = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [project.urls]
 Repository = "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
-# A remplacer par le DOI de la version 2.0.0 apres la release Zenodo :
+# Version DOI of 1.0.0; to be replaced by the DOI of 3.0.0 after the Zenodo release
 Software = "https://doi.org/10.5281/zenodo.20076199"
 Article = "https://doi.org/PLACEHOLDER"
 

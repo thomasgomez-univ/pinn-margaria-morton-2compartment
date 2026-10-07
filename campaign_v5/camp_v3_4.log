@@ -1,0 +1,25 @@
+athlete 34  sigma= 5.0  | pop 5.0%  pop+APmax 5.0%  LM 0.1%  DE 6.1%  PINN 13.8%
+athlete 35  sigma= 5.0  | pop 23.0%  pop+APmax 23.0%  LM 0.5%  DE 6.4%  PINN 9.5%
+athlete 36  sigma= 5.0  | pop 0.6%  pop+APmax 0.6%  LM 0.7%  DE 10.3%  PINN 20.8%
+athlete 37  sigma= 5.0  | pop 0.9%  pop+APmax 0.9%  LM 0.2%  DE 8.3%  PINN 20.8%
+athlete 38  sigma= 5.0  | pop 10.2%  pop+APmax 10.2%  LM 0.0%  DE 1.8%  PINN 15.4%
+athlete 39  sigma= 5.0  | pop 2.9%  pop+APmax 2.9%  LM 0.5%  DE 2.3%  PINN 7.2%
+athlete 40  sigma= 5.0  | pop 21.7%  pop+APmax 21.7%  LM 0.4%  DE 11.8%  PINN 15.5%
+athlete 41  sigma= 5.0  | pop 18.8%  pop+APmax 18.8%  LM 0.1%  DE 0.5%  PINN 15.2%
+athlete 34  sigma= 2.0  | pop 5.0%  pop+APmax 5.0%  LM 0.1%  DE 7.9%  PINN 14.3%
+athlete 35  sigma= 2.0  | pop 23.0%  pop+APmax 23.0%  LM 0.1%  DE 6.0%  PINN 9.2%
+athlete 36  sigma= 2.0  | pop 0.6%  pop+APmax 0.6%  LM 0.0%  DE 9.6%  PINN 20.0%
+athlete 37  sigma= 2.0  | pop 0.9%  pop+APmax 0.9%  LM 0.0%  DE 6.1%  PINN 24.6%
+athlete 38  sigma= 2.0  | pop 10.2%  pop+APmax 10.2%  LM 0.0%  DE 2.8%  PINN 17.2%
+athlete 39  sigma= 2.0  | pop 2.9%  pop+APmax 2.9%  LM 0.1%  DE 0.0%  PINN 6.9%
+athlete 40  sigma= 2.0  | pop 21.7%  pop+APmax 21.7%  LM 0.0%  DE 9.9%  PINN 14.8%
+athlete 41  sigma= 2.0  | pop 18.8%  pop+APmax 18.8%  LM 0.1%  DE 3.4%  PINN 16.1%
+athlete 34  sigma=10.0  | pop 5.0%  pop+APmax 5.0%  LM 0.3%  DE 3.7%  PINN 14.2%
+athlete 35  sigma=10.0  | pop 23.0%  pop+APmax 23.0%  LM 0.5%  DE 1.9%  PINN 10.7%
+athlete 36  sigma=10.0  | pop 0.6%  pop+APmax 0.6%  LM 0.9%  DE 8.4%  PINN 21.3%
+athlete 37  sigma=10.0  | pop 0.9%  pop+APmax 0.9%  LM 1.0%  DE 3.1%  PINN 24.0%
+athlete 38  sigma=10.0  | pop 10.2%  pop+APmax 10.2%  LM 0.1%  DE 4.5%  PINN 15.2%
+athlete 39  sigma=10.0  | pop 2.9%  pop+APmax 2.9%  LM 0.6%  DE 2.6%  PINN 7.2%
+athlete 40  sigma=10.0  | pop 21.7%  pop+APmax 21.7%  LM 0.3%  DE 8.8%  PINN 15.3%
+athlete 41  sigma=10.0  | pop 18.8%  pop+APmax 18.8%  LM 0.1%  DE 1.5%  PINN 16.3%
+-> camp_v3_4.jsonl
