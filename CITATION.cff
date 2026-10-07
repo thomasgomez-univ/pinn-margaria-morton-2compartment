@@ -10,8 +10,7 @@ authors:
     affiliation: "Université Paris-Saclay, Évry, France; Icam, Grand Paris Sud, France"
     orcid: "https://orcid.org/0000-0003-2017-3446"
 version: "3.0.0"
-# Version DOI of 1.0.0; to be replaced by the DOI Zenodo assigns to 3.0.0 :
-doi: 10.5281/zenodo.20076199
+doi: 10.5281/zenodo.23223356
 date-released: "2026-10-07"
 license: MIT
 repository-code: "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"

@@ -46,8 +46,7 @@ dev = ["pytest>=7.0", "pytest-cov>=4.0"]
 
 [project.urls]
 Repository = "https://github.com/thomasgomez-univ/pinn-margaria-morton-2compartment"
-# Version DOI of 1.0.0; to be replaced by the DOI of 3.0.0 after the Zenodo release
-Software = "https://doi.org/10.5281/zenodo.20076199"
+Software = "https://doi.org/10.5281/zenodo.23223356"
 Article = "https://doi.org/PLACEHOLDER"
 
 [tool.setuptools.packages.find]

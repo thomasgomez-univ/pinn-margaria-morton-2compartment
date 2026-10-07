@@ -4,6 +4,8 @@ Code, synthetic data and analysis outputs accompanying the manuscript
 
 > Gomez, T. (2026). *What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study.* Submitted to PeerJ.
 
+Archived on Zenodo: version 3.0.0, [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198).
+
 > **Version 3.0.0 is the version used for the submitted manuscript.** It adds
 > `campaign_v5/`, the complete estimation campaign and every complementary
 > analysis reported in the article and its Supplemental Article S1, together
