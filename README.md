@@ -1,8 +1,8 @@
-# What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study
+# Can a bioenergetic digital twin of an athlete be individualized? Identifiability of a two-compartment model of critical power — a simulation study
 
 Code, synthetic data and analysis outputs accompanying the manuscript
 
-> Gomez, T. (2026). *What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study.* Submitted to PeerJ.
+> Gomez, T. (2026). *Can a bioenergetic digital twin of an athlete be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Submitted to PeerJ.
 
 Archived on Zenodo: version 3.0.0, [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198).
 

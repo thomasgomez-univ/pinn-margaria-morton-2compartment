@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 Release accompanying the manuscript submitted to PeerJ:
 
-> Gomez, T. (2026). *What a digital twin of critical power can report: identifiability limits the individualization of a two-compartment bioenergetic model — a simulation study.*
+> Gomez, T. (2026). *Can a bioenergetic digital twin of an athlete be individualized? Identifiability of a two-compartment model of critical power — a simulation study.*
 
 Version 2.0.0 was tagged locally but never archived; 3.0.0 is the first
 archived release since 1.0.0.
