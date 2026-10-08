@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite both the article and this repository as below."
 type: software
-title: "Can a bioenergetic digital twin of an athlete be individualized? Identifiability of a two-compartment model of critical power - a simulation study"
-abstract: "Source code, synthetic data, raw outputs and analysis scripts accompanying the manuscript on whether a bioenergetic digital twin of an athlete can be individualized: structural and practical identifiability of a reduced two-compartment Margaria-Morton model, estimator efficiency against the Cramer-Rao bound (Levenberg-Marquardt, Differential Evolution, physics-informed network), out-of-sample prediction, departures from the generating model, and identifiability under oxygen uptake and time to exhaustion. Supersedes versions 1.0.0 and 2.0.0."
+title: "Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power - a simulation study"
+abstract: "Source code, synthetic data, raw outputs and analysis scripts accompanying the manuscript on which quantities of a bioenergetic digital twin of an athlete can be individualized: structural and practical identifiability of a reduced two-compartment Margaria-Morton model, estimator efficiency against the Cramer-Rao bound (Levenberg-Marquardt, Differential Evolution, physics-informed network), out-of-sample prediction, departures from the generating model, and identifiability under oxygen uptake and time to exhaustion. Supersedes versions 1.0.0 and 2.0.0."
 authors:
   - family-names: "Gomez"
     given-names: "Thomas"
@@ -31,7 +31,7 @@ preferred-citation:
   authors:
     - family-names: "Gomez"
       given-names: "Thomas"
-  title: "Can a bioenergetic digital twin of an athlete be individualized? Identifiability of a two-compartment model of critical power - a simulation study"
+  title: "Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power - a simulation study"
   journal: "PeerJ"
   year: 2026
   notes: "Submitted"
