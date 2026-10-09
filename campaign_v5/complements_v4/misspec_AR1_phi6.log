@@ -1,0 +1,11 @@
+AR1 i= 0  LM CP 0.22%  rmse_true 112  (112 s)
+AR1 i= 1  LM CP 0.02%  rmse_true 113  (299 s)
+AR1 i= 2  LM CP 0.04%  rmse_true 99  (438 s)
+AR1 i= 3  LM CP 1.07%  rmse_true 101  (520 s)
+AR1 i= 4  LM CP 0.19%  rmse_true 133  (821 s)
+AR1 i= 5  LM CP 0.38%  rmse_true 108  (966 s)
+AR1 i= 6  LM CP 0.10%  rmse_true 105  (1121 s)
+AR1 i= 7  LM CP 0.09%  rmse_true 85  (1242 s)
+AR1 i= 8  LM CP 0.21%  rmse_true 116  (1410 s)
+AR1 i= 9  LM CP 0.14%  rmse_true 75  (1503 s)
+TERMINE misspec AR1 shard 0

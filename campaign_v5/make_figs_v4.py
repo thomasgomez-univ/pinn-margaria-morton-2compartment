@@ -8,7 +8,7 @@ plt.rcParams.update({"font.family": "serif", "font.size": 8, "axes.labelsize": 8
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, "..", "figures") + "/"; C = os.path.join(HERE, "complements_v4")
 LBL = [r"$M_O$", r"$A_{O,\max}$", r"$A_{P,\max}$", r"$M_R$", r"$\eta$"]
 COL = {"pop": "#8c8c8c", "LM": "#1b4f9c", "DE": "#c0562a", "PINN": "#9fcf9f", "PINN_v4": "#2e7d4f"}
-NAME = {"pop": "Population mean", "LM": "Levenberg–Marquardt", "DE": "Differential Evolution", "PINN": "PINN, original", "PINN_v4": "PINN, corrected"}
+NAME = {"pop": "Population mean", "LM": "Trust-region least squares", "DE": "Differential Evolution", "PINN": "PINN, original", "PINN_v4": "PINN, corrected"}
 V3 = [json.loads(l) for f in sorted(glob.glob(HERE + "/camp_v3_*.jsonl")) for l in open(f)]
 V4 = {(r["i"], r["sigma_P"]): r for f in sorted(glob.glob(HERE + "/camp_v4_[0-9].jsonl")) for l in open(f) for r in [json.loads(l)]}
 def est(r, m): return np.array(V4[(r["i"], r["sigma_P"])]["est"]) if m == "PINN_v4" else np.array(r["est"][m])

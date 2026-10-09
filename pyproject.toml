@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mm2c"
-version = "3.0.0"
+version = "3.1.0"
 description = "Structural and practical identifiability, estimator efficiency against the Cramer-Rao bound, and protocol design for a reduced two-compartment Margaria-Morton bioenergetic model of critical power."
 readme = "README.md"
 requires-python = ">=3.10"

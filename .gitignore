@@ -92,6 +92,7 @@ tmp/
 # Raw logs of the v3.0.0 campaign are part of the archived results
 !campaign_v5/*.log
 !campaign_v5/complements_v4/*.log
+!scripts/identifiability_global.log
 
 # ============================================================
 # LaTeX (if manuscript ends up in same repo someday)

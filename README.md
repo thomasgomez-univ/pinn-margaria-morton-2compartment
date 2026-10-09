@@ -2,11 +2,14 @@
 
 Code, synthetic data and analysis outputs accompanying the manuscript
 
-> Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Submitted to PeerJ.
+> Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Submitted to PeerJ (revised version).
 
-Archived on Zenodo: version 3.0.0, [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198).
+Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (first submission), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (revised manuscript), DOI to be added after the release.
 
-> **Version 3.0.0 is the version used for the submitted manuscript.** It adds
+> **Version 3.1.0 is the version used for the revised manuscript.** It adds the
+> analyses of the revision (`campaign_v5/complements_v4/rev3_*.py`, the
+> population generator `make_population_v5.py`, the sweeps of `misspec_v4.py`
+> and the StructuralIdentifiability.jl cross-check) to version 3.0.0, which adds
 > `campaign_v5/`, the complete estimation campaign and every complementary
 > analysis reported in the article and its Supplemental Article S1, together
 > with their raw outputs. Version 2.0.0 (`src/mm2c/`, `scripts/`, `data/`) is
@@ -53,7 +56,7 @@ pip install -r requirements.txt
 CPU PyTorch is sufficient: each fit is pinned to one thread and parallelism is
 between processes.
 
-## Reproducing the submitted manuscript (version 3.0.0)
+## Reproducing the manuscript (versions 3.0.0 and 3.1.0)
 
 All quantities of the submitted manuscript come from `campaign_v5/` (estimation,
 Fisher information, prediction, departures from the model, protocol design,
@@ -82,6 +85,15 @@ are in French.
 | Sec. 3.6, Table S3 | `complements_v4/protocoles_v3.py`, `protocoles_extra_v5.py`, `analyse_protocoles_v5.py`, `analyse_protocoles_v5b.py` |
 | Section S6, Fig. S2 (power–duration relation) | `complements_v4/pd_curve_v4.py` |
 | Section S7, Fig. S3 (simulated oxygen kinetics) | `complements_v4/vo2_kinetics_v5.py` |
+| Sec. 2.4, Table 1, population generator | `make_population_v5.py --check` |
+| Sec. 3.2, bounds on CP_PD and W'_PD; replenishment flux | `complements_v4/rev3_cp_pd.py` (then `--analyse`) |
+| Sec. 3.2, bounds under the induced noise covariance | `complements_v4/rev3_sigma_fim.py K 3 --n 20` (then `--analyse`) |
+| Sec. 2.1 and S10, equilibria and divergence of T_lim, Table S8 | `complements_v4/rev3_tlim_div.py` (then `--analyse`) |
+| Sec. 3.4, censoring in Table 5 | `complements_v4/rev3_censoring.py` |
+| Tables 4, S5–S7, Clopper–Pearson intervals | `complements_v4/rev3_binom.py` |
+| Sec. 3.5, Table S7, feasible GLS and sweeps | `complements_v4/misspec_v4.py AR1 --phi 0.3 --tag _phi3 --methods LM --n 10` (idem 0.6, 0.95; `DRIFT --delta 0.025 --tag _d0025`, `0.10 --tag _d010`), `complements_v4/rev3_fgls.py --phi 0.8 --tag _phi08` (then `--analyse`) |
+| Sec. 3.6, Table S10, alternative populations | `complements_v4/rev3_population.py seed8 --fit` (idem `seed9`, `rho05`, `tau_wide`; then `--analyse`) |
+| Sec. 3.1 and S11, StructuralIdentifiability.jl | `julia scripts/identifiability_global.jl` (output shipped as `scripts/identifiability_global.log`) |
 
 The full campaign is chained by `run_v5_all.sh` (3–5 h on a laptop, CPU) and
 the second-round complements by `run_rev2.sh` (about 3 h). The virtual
@@ -116,12 +128,12 @@ manuscript no longer uses.
 ## Layout
 
 ```
-campaign_v5/           version 3.0.0: campaign and complements of the submitted manuscript
+campaign_v5/           versions 3.0.0–3.1.0: campaign and complements of the manuscript
 src/mm2c/pipeline.py   model, population, synthetic data, the three estimators,
                        the two baselines, the Fisher information and the CRLB
 scripts/               one script per manuscript item (table above)
 data/                  results of version 2.0.0 (superseded)
-figures/               figures of the submitted manuscript and supplement (v3.0.0)
+figures/               figures of the manuscript and supplement (v3.1.0)
 ```
 
 ## Caveat

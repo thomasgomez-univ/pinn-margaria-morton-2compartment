@@ -1,0 +1,11 @@
+DRIFT i= 0  LM CP 2.32%  rmse_true 630  (80 s)
+DRIFT i= 1  LM CP 1.31%  rmse_true 620  (197 s)
+DRIFT i= 2  LM CP 1.56%  rmse_true 693  (302 s)
+DRIFT i= 3  LM CP 2.18%  rmse_true 491  (359 s)
+DRIFT i= 4  LM CP 1.83%  rmse_true 694  (733 s)
+DRIFT i= 5  LM CP 1.68%  rmse_true 695  (969 s)
+DRIFT i= 6  LM CP 1.88%  rmse_true 584  (1318 s)
+DRIFT i= 7  LM CP 1.02%  rmse_true 583  (177 s)
+DRIFT i= 8  LM CP 1.11%  rmse_true 659  (140 s)
+DRIFT i= 9  LM CP 2.31%  rmse_true 634  (247 s)
+TERMINE misspec DRIFT shard 0

@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] — 2026-10-09
+
+Revision of the manuscript after review. The estimation campaign is unchanged;
+this version adds the analyses of the revision and corrects the name of the
+least-squares estimator.
+
+### Added
+- `campaign_v5/make_population_v5.py`: generator of the virtual population,
+  reproducing `pop_recal.npy` exactly (`--check`), with options for other
+  seeds, a CP–`A_P_max` correlation and another range of `1/M_R`.
+- `campaign_v5/complements_v4/rev3_cp_pd.py`: Cramér–Rao bounds on the
+  critical power and W' that a two-parameter power–duration test returns.
+- `campaign_v5/complements_v4/rev3_sigma_fim.py`: Fisher information with the
+  covariance of the `A_P` deviations induced by power-meter noise (Monte Carlo),
+  with shrinkage and nugget regularization.
+- `campaign_v5/complements_v4/rev3_tlim_div.py`: equilibria at constant power,
+  Jacobian eigenvalues, logarithmic divergence of the time to exhaustion near
+  critical power (Section S10 of the supplement).
+- `campaign_v5/complements_v4/rev3_censoring.py`: censoring at the 3600 s horizon
+  in the out-of-sample predictions (Table 5).
+- `campaign_v5/complements_v4/rev3_binom.py`: exact (Clopper–Pearson) confidence
+  intervals on every coverage reported.
+- `campaign_v5/complements_v4/rev3_fgls.py`: feasible generalized least squares
+  under AR(1) noise, `phi` estimated from the residuals (Cochrane–Orcutt);
+  sweeps of `misspec_v4.py` in `phi` (0.3, 0.6, 0.95) and in the efficiency
+  drift (2.5, 10 %), outputs `misspec_v4_*_phi*.jsonl`, `misspec_v4_*_d0*.jsonl`
+  (Table S7).
+- `campaign_v5/complements_v4/rev3_population.py`: Fisher information and
+  least-squares fit on four alternative populations (Table S10, Section S12).
+- `scripts/identifiability_global.log`: output of StructuralIdentifiability.jl
+  (Julia 1.13.1) confirming global identifiability of the five parameters and
+  both states, with the initial states unknown and known (Section S11).
+- Raw outputs (`rev3_*.jsonl`, `rev3_*.json`) and logs of all the above.
+
+### Changed
+- The bound-constrained least-squares estimator is now named by the algorithm
+  actually used, the trust-region reflective method of
+  `scipy.optimize.least_squares` (`method="trf"`; Branch, Coleman & Li, 1999),
+  instead of "Levenberg–Marquardt". The code is unchanged; the label `LM` in
+  file and field names is kept for continuity. Figures 3, 4 and S1 relabelled
+  (`make_figs_v4.py`).
+
 ## [3.0.0] — 2026-10-07
 
 Release accompanying the manuscript submitted to PeerJ:

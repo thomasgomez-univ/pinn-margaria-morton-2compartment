@@ -1,0 +1,163 @@
+[ Info: Summary of the model:
+[ Info: State variables: AO, AP
+[ Info: Parameters: AOm, APm, MO, MR, eta
+[ Info: Inputs: u
+[ Info: Outputs: y
+======================================================================
+1. Identifiabilite locale (rapide)
+======================================================================
+OrderedCollections.OrderedDict{Any, Bool} with 7 entries:
+  AO(t) => 1
+  AP(t) => 1
+  AOm => 1
+  APm => 1
+  MO => 1
+  MR => 1
+  eta => 1
+
+======================================================================
+2. Identifiabilite globale par parametre
+======================================================================
+[ Info: Assessing local identifiability
+[ Info: Assessing global identifiability
+[ Info: Functions to check involve states
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 2.135683709 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.467426958 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 0.007764167 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+⌜ # Computing specializations..     Time: 0:00:01[K✓ # Computing specializations..     Time: 0:00:01[K
+[ Info: Search for polynomial generators concluded in 1.240684834
+[ Info: Selecting generators in 0.002449708
+[ Info: Inclusion checked with probability 0.9955 in 2.417877209 seconds
+[ Info: Global identifiability assessed in 17.569067125 seconds
+OrderedCollections.OrderedDict{Any, Symbol} with 7 entries:
+  AO(t) => :globally
+  AP(t) => :globally
+  AOm => :globally
+  APm => :globally
+  MO => :globally
+  MR => :globally
+  eta => :globally
+
+======================================================================
+3. Fonctions identifiables (generateurs du corps des invariants)
+======================================================================
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 0.00182475 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.001148916 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 2.2166e-5 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+[ Info: Search for polynomial generators concluded in 0.00062175
+[ Info: Selecting generators in 0.120183833
+[ Info: Inclusion checked with probability 0.995 in 0.002478834 seconds
+[ Info: The search for identifiable functions concluded in 0.286878333 seconds
+5-element Vector{AbstractAlgebra.Generic.FracFieldElem{Nemo.QQMPolyRingElem}}:
+ eta
+ MR
+ MO
+ APm
+ AOm
+
+======================================================================
+4. Fonctions identifiables incluant les etats initiaux
+======================================================================
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 0.001342208 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.001026167 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 1.6834e-5 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+[ Info: Search for polynomial generators concluded in 0.000474334
+[ Info: Selecting generators in 0.000852875
+[ Info: Inclusion checked with probability 0.995 in 0.002089666 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+⌜ # Computing specializations..     Time: 0:00:00[K✓ # Computing specializations..     Time: 0:00:00[K
+[ Info: Search for polynomial generators concluded in 0.113601541
+[ Info: Selecting generators in 0.002289334
+[ Info: Inclusion checked with probability 0.995 in 0.002555542 seconds
+[ Info: The search for identifiable functions concluded in 1.323870792 seconds
+7-element Vector{AbstractAlgebra.Generic.FracFieldElem{Nemo.QQMPolyRingElem}}:
+ eta
+ MR
+ MO
+ APm
+ AOm
+ AP(t)
+ AO(t)
+[ Info: Summary of the model:
+[ Info: State variables: xO, xP
+[ Info: Parameters: APm, MR, eta, k, m
+[ Info: Inputs: u
+[ Info: Outputs: y
+
+======================================================================
+5. Formulation normalisee (CI connues xO(0) = xP(0) = 1)
+======================================================================
+[ Info: Assessing local identifiability
+[ Info: Assessing global identifiability
+[ Info: Functions to check involve states
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 0.001170875 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.000975875 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 1.6458e-5 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+[ Info: Search for polynomial generators concluded in 0.000477167
+[ Info: Selecting generators in 0.000815083
+[ Info: Inclusion checked with probability 0.9955 in 0.002041167 seconds
+[ Info: Global identifiability assessed in 0.012935583 seconds
+OrderedCollections.OrderedDict{Any, Symbol} with 7 entries:
+  xO(t) => :globally
+  xP(t) => :globally
+  APm => :globally
+  MR => :globally
+  eta => :globally
+  k => :globally
+  m => :globally
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 0.001650834 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.001119792 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 1.6917e-5 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+[ Info: Search for polynomial generators concluded in 0.000454542
+[ Info: Selecting generators in 0.000979333
+[ Info: Inclusion checked with probability 0.995 in 0.002058208 seconds
+[ Info: The search for identifiable functions concluded in 0.012489458 seconds
+5-element Vector{AbstractAlgebra.Generic.FracFieldElem{Nemo.QQMPolyRingElem}}:
+ m
+ k
+ eta
+ MR
+ APm
+
+--- avec CI connues explicitement ---
+[ Info: Computing IO-equations
+[ Info: Computed IO-equations in 0.00133025 seconds
+[ Info: Computing Wronskians
+[ Info: Computed Wronskians in 0.001136292 seconds
+[ Info: Dimensions of the Wronskians [13]
+[ Info: Ranks of the Wronskians computed in 1.3083e-5 seconds
+[ Info: Simplifying generating set. Simplification level: standard
+[ Info: Search for polynomial generators concluded in 0.000446167
+[ Info: Selecting generators in 0.000804417
+[ Info: Inclusion checked with probability 0.99875 in 0.002100166 seconds
+[ Info: The search for identifiable functions concluded in 0.012028417 seconds
+[ Info: The search for identifiable functions with known initial conditions concluded in 0.020964209 seconds
+[ Info: Assessing identifiability with known initial conditions concluded in 0.053060667 seconds
+OrderedCollections.OrderedDict{Nemo.QQMPolyRingElem, Symbol} with 7 entries:
+  xO(0) => :globally
+  xP(0) => :globally
+  APm => :globally
+  MR => :globally
+  eta => :globally
+  k => :globally
+  m => :globally

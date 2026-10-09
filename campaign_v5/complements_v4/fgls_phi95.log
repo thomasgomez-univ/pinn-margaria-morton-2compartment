@@ -1,0 +1,11 @@
+phi 0.95 i= 0 phi_hat [0.855 0.872]  CP OLS 0.25% FGLS 0.32%  (4 s)
+phi 0.95 i= 1 phi_hat [0.815 0.828]  CP OLS 0.00% FGLS 0.02%  (10 s)
+phi 0.95 i= 2 phi_hat [0.762 0.782]  CP OLS 0.09% FGLS 0.07%  (14 s)
+phi 0.95 i= 3 phi_hat [0.963 0.966]  CP OLS 5.54% FGLS 6.65%  (17 s)
+phi 0.95 i= 4 phi_hat [0.82  0.859]  CP OLS 0.07% FGLS 0.07%  (28 s)
+phi 0.95 i= 5 phi_hat [0.852 0.875]  CP OLS 0.37% FGLS 0.33%  (34 s)
+phi 0.95 i= 6 phi_hat [0.904 0.915]  CP OLS 0.05% FGLS 0.06%  (42 s)
+phi 0.95 i= 7 phi_hat [0.942 0.96 ]  CP OLS 0.24% FGLS 0.14%  (47 s)
+phi 0.95 i= 8 phi_hat [0.911 0.96 ]  CP OLS 0.23% FGLS 0.39%  (53 s)
+phi 0.95 i= 9 phi_hat [0.893 0.893]  CP OLS 0.29% FGLS 0.24%  (55 s)
+TERMINE fgls phi 0.95 shard 0

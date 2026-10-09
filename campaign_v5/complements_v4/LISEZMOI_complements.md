@@ -37,3 +37,14 @@ de la direction plate), misfit 1,15 x plancher.
 50 athletes : T_lim du modele a 102/105/110/125/150/200 % de CP_m (medianes 340/253/189/117/76/46 s) contre 3053/1221/611/244/122/61 s pour
 l'hyperbole de memes CP et W' ; (P-CP) T_lim de 2,1 a 14,3 kJ ; ajustement a deux parametres sur 105-150 % : CP_test/CP_m 0,80-0,88 (med 0,83),
 W'_test/W'_m 0,78-0,84 (med 0,81). Sorties `pd_curve_v4.json`, `pd_curve_v4_summary.json`, `figures/fig_pd_curve.pdf` (Figure S2, Section S6).
+
+## Revision rev.3 (09/10, scripts `rev3_*.py`)
+Analyses demandees par la relecture ; estimateur renomme « trust-region reflective » (TRF, scipy `method="trf"`), le label `LM` des fichiers est conserve.
+- `rev3_cp_pd.py` : bornes de Cramer-Rao sur CP_PD et W'_PD (regression P = CP + W'/T a 105/110/125/150 % CP), 50 athletes ; `rev3_cp_pd_0.jsonl`.
+- `rev3_sigma_fim.py K 3 --n 20 --mc 400` : information de Fisher avec la covariance Sigma des deviations de A_P (400 tirages Monte-Carlo du bruit de puissance), retrait vers la diagonale (alpha) et pepite (nu) ; `rev3_sigma_fim_K.jsonl`.
+- `rev3_tlim_div.py` : equilibres a puissance constante, valeurs propres du jacobien, divergence logarithmique de T_lim pres de CP ; `rev3_tlim_div_0.jsonl`.
+- `rev3_censoring.py` : censure a 3600 s dans les predictions de la Table 5 ; `rev3_censoring.json`.
+- `rev3_binom.py` : intervalles de Clopper-Pearson sur les couvertures ; `rev3_binom.json`.
+- `misspec_v4.py AR1 --phi 0.3|0.6|0.95 --tag _phiX --methods LM --n 10` et `DRIFT --delta 0.025|0.10 --tag _d0025|_d010` : balayages ; `rev3_fgls.py --phi X --tag _phiX [--tagols _phiX]` : moindres carres generalises faisables (phi estime sur les residus, Cochrane-Orcutt itere) ; `rev3_fgls_0_phiX.jsonl`.
+- `rev3_population.py seed8|seed9|rho05|tau_wide --fit` : populations alternatives de 20 athletes (generateur `../make_population_v5.py`), Fisher sur 20, TRF sur 10 ; `rev3_pop_<pop>_0.jsonl`.
+Toutes les syntheses par `--analyse`. Logs cloud (numpy 2.2.6, scipy 1.15.3) joints.
