@@ -9,12 +9,12 @@ import argparse, os, numpy as np
 JO2 = 20.9
 def W_to_Lmin(w): return w / JO2 * 60 / 1000.0
 def recalibrate(n=50, seed=7, cp_mu=300.0, cp_sd=45.0, cp_lo=216.0, cp_hi=402.0, xss_lo=0.78, xss_hi=0.88,
-                tau_lo=18.0, tau_hi=91.0, rho_cp_ap=0.0):
+                tau_lo=18.0, tau_hi=91.0, rho_cp_ap=0.0, eta_mu=0.25, eta_sd=0.02):
     r = np.random.default_rng(seed); out = []
     while len(out) < n:
         cp = r.normal(cp_mu, cp_sd)
         if not cp_lo <= cp <= cp_hi: continue
-        xss = r.uniform(xss_lo, xss_hi); eta = r.normal(0.25, 0.02)
+        xss = r.uniform(xss_lo, xss_hi); eta = r.normal(eta_mu, eta_sd)
         MO = cp / (xss * eta)
         if not 3.0 <= W_to_Lmin(MO) <= 6.5: continue
         MR = 1.0 / r.uniform(tau_lo, tau_hi)

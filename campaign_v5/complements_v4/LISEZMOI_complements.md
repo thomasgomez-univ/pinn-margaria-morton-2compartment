@@ -48,3 +48,10 @@ Analyses demandees par la relecture ; estimateur renomme « trust-region reflect
 - `misspec_v4.py AR1 --phi 0.3|0.6|0.95 --tag _phiX --methods LM --n 10` et `DRIFT --delta 0.025|0.10 --tag _d0025|_d010` : balayages ; `rev3_fgls.py --phi X --tag _phiX [--tagols _phiX]` : moindres carres generalises faisables (phi estime sur les residus, Cochrane-Orcutt itere) ; `rev3_fgls_0_phiX.jsonl`.
 - `rev3_population.py seed8|seed9|rho05|tau_wide --fit` : populations alternatives de 20 athletes (generateur `../make_population_v5.py`), Fisher sur 20, TRF sur 10 ; `rev3_pop_<pop>_0.jsonl`.
 Toutes les syntheses par `--analyse`. Logs cloud (numpy 2.2.6, scipy 1.15.3) joints.
+
+## Revision rev.3 bis (09/10, second rapport)
+- `rev3_eiv.py 0 2 --n 10` et `1 2 --n 10` : erreurs dans les variables, A_P exact sous la puissance vraie, estimateur alimente par la puissance enregistree (bruit blanc 5 W aux noeuds de 1 s, interpole) ; pas de difference finie 1e-5 et rtol 1e-10 (sinon le jacobien numerique est du bruit et l'iteration s'arrete loin du minimum) ; `rev3_eiv_K.jsonl`, synthese `--analyse` (Table S8).
+- `rev3_chi2.py` : test chi2 (115 ddl) du residu pondere sur la campagne et sur chaque ecart au modele ; `rev3_chi2.json`, `rev3_chi2_null.json`.
+- `rev3_population.py eta_low --fit` : cinquieme population, eta ~ N(0.21, 0.02) (options `eta_mu`, `eta_sd` de `make_population_v5.py`) ; `rev3_pop_eta_low_0.jsonl` (Table S11).
+- `make_fig_summary.py` : Figure 3 du manuscrit (bornes sous les trois observables) a partir de `camp_v3_*.jsonl` et `rev3_sigma_fim_*.jsonl`, les bornes VO2 + T_lim et CP, W', flux, CP_PD, W'_PD sous bruit blanc etant les valeurs du manuscrit codees en dur.
+Les calculs ont tourne dans le conteneur cloud (numpy 2.2.6, scipy 1.15.3) ; logs joints.

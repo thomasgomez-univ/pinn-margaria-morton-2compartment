@@ -2,12 +2,16 @@
 
 Code, synthetic data and analysis outputs accompanying the manuscript
 
-> Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Submitted to PeerJ (revised version).
+> Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Manuscript prepared for submission to PeerJ.
 
-Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (first submission), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (revised manuscript), [10.5281/zenodo.23259692](https://doi.org/10.5281/zenodo.23259692).
+Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (manuscript of 7 October 2026), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (manuscript of 9 October 2026, after an internal review), [10.5281/zenodo.23259692](https://doi.org/10.5281/zenodo.23259692).
 
-> **Version 3.1.0 is the version used for the revised manuscript.** It adds the
-> analyses of the revision (`campaign_v5/complements_v4/rev3_*.py`, the
+> **Version 3.1.1 is the version used for the manuscript to be submitted.** It adds to
+> 3.1.0 the errors-in-variables experiment (`rev3_eiv.py`), the chi-squared
+> detection test (`rev3_chi2.py`), a fifth alternative population (`eta_low`)
+> and the summary figure of the bounds (`make_fig_summary.py`, Figure 3).
+> Version 3.1.0 adds the
+> analyses added after an internal review (`campaign_v5/complements_v4/rev3_*.py`, the
 > population generator `make_population_v5.py`, the sweeps of `misspec_v4.py`
 > and the StructuralIdentifiability.jl cross-check) to version 3.0.0, which adds
 > `campaign_v5/`, the complete estimation campaign and every complementary
@@ -56,9 +60,9 @@ pip install -r requirements.txt
 CPU PyTorch is sufficient: each fit is pinned to one thread and parallelism is
 between processes.
 
-## Reproducing the manuscript (versions 3.0.0 and 3.1.0)
+## Reproducing the manuscript (versions 3.0.0 to 3.1.1)
 
-All quantities of the submitted manuscript come from `campaign_v5/` (estimation,
+All quantities of the manuscript come from `campaign_v5/` (estimation,
 Fisher information, prediction, departures from the model, protocol design,
 oxygen-uptake observables) and from the population-independent structural
 analyses of `scripts/`. Shipped `.jsonl`, `.json`, `.npz` and `.log` files are
@@ -75,7 +79,7 @@ are in French.
 | Table 2, Fisher blocks (A_P, VO2, T_lim) | `complements_v4/fim_vo2_single_v5.py`, `complements_v4/vo2_tlim_v5.py` |
 | Sec. 3.2, Fig. 2 | `complements_v4/fim_v3.py`, then `make_figs_v4.py` |
 | Sec. 3.2, profile likelihood, Fig. S4 | `complements_v4/profile_v5.py 0/1/2`, `complements_v4/profile_rebuild_v5.py` |
-| Sec. 3.3, Tables 3–4, Figs. 3–4, Table S4, Fig. S1 | `run_campagne.sh` (`pipeline_v3.py`), `run_v4.sh` (`pipeline_v4.py`, corrected network), then `tables_v4.py`, `make_figs_v4.py`, `cos_align_v5.py` |
+| Sec. 3.4, Tables 3–4, Figs. 4–5, Table S4, Fig. S1 | `run_campagne.sh` (`pipeline_v3.py`), `run_v4.sh` (`pipeline_v4.py`, corrected network), then `tables_v4.py`, `make_figs_v4.py`, `cos_align_v5.py` |
 | Sec. 3.3, repeated realizations | `complements_v4/rep_lm_v3.py` |
 | Sec. 3.3, seed variability (DE, network) | `run_rev2.sh`; `complements_v4/de_seeds_v5.py --analyse`, `complements_v4/pinn_seeds_v5.py` |
 | Sec. 2.5 and S4, inverse-crime control, residual-weight sweep | `complements_v4/inverse_crime_v3.py`, `complements_v4/wr_sweep_v4.py` |
@@ -88,11 +92,14 @@ are in French.
 | Sec. 2.4, Table 1, population generator | `make_population_v5.py --check` |
 | Sec. 3.2, bounds on CP_PD and W'_PD; replenishment flux | `complements_v4/rev3_cp_pd.py` (then `--analyse`) |
 | Sec. 3.2, bounds under the induced noise covariance | `complements_v4/rev3_sigma_fim.py K 3 --n 20` (then `--analyse`) |
-| Sec. 2.1 and S10, equilibria and divergence of T_lim, Table S8 | `complements_v4/rev3_tlim_div.py` (then `--analyse`) |
+| Secs. 2.1, 3.1 and S10, equilibria and divergence of T_lim, Table S9 | `complements_v4/rev3_tlim_div.py` (then `--analyse`) |
 | Sec. 3.4, censoring in Table 5 | `complements_v4/rev3_censoring.py` |
 | Tables 4, S5–S7, Clopper–Pearson intervals | `complements_v4/rev3_binom.py` |
 | Sec. 3.5, Table S7, feasible GLS and sweeps | `complements_v4/misspec_v4.py AR1 --phi 0.3 --tag _phi3 --methods LM --n 10` (idem 0.6, 0.95; `DRIFT --delta 0.025 --tag _d0025`, `0.10 --tag _d010`), `complements_v4/rev3_fgls.py --phi 0.8 --tag _phi08` (then `--analyse`) |
-| Sec. 3.6, Table S10, alternative populations | `complements_v4/rev3_population.py seed8 --fit` (idem `seed9`, `rho05`, `tau_wide`; then `--analyse`) |
+| Sec. 3.7, Table S11, alternative populations | `complements_v4/rev3_population.py seed8 --fit` (idem `seed9`, `rho05`, `tau_wide`, `eta_low`; then `--analyse`) |
+| Sec. 3.6, Table S8, errors-in-variables (recorded power as input) | `complements_v4/rev3_eiv.py 0 2 --n 10` and `1 2 --n 10` (then `--analyse`) |
+| Secs. 2.6, 3.6 and S5, chi-squared detection test | `complements_v4/rev3_chi2.py` |
+| Fig. 3, bounds under the three observables | `complements_v4/make_fig_summary.py` |
 | Sec. 3.1 and S11, StructuralIdentifiability.jl | `julia scripts/identifiability_global.jl` (output shipped as `scripts/identifiability_global.log`) |
 
 The full campaign is chained by `run_v5_all.sh` (3–5 h on a laptop, CPU) and
@@ -122,7 +129,7 @@ same command skips work already recorded.
 `scripts/analyse_sweep.py` prints the summary table and the paired Friedman and
 Wilcoxon tests for any sweep file.
 
-These commands reproduce the version 2.0.0 results, which the submitted
+These commands reproduce the version 2.0.0 results, which the current
 manuscript no longer uses.
 
 ## Layout

@@ -3,15 +3,17 @@
 Populations de 20 athletes (sigma_P = 5 W, protocoles A + B, meme generateur que la campagne, make_population_v5) :
   seed8, seed9 : memes lois, autres graines ;
   rho05        : graine 7, correlation 0,5 entre CP et A_Pmax ;
-  tau_wide     : graine 7, 1/M_R ~ U[12, 150] s au lieu de U[18, 91] s.
+  tau_wide     : graine 7, 1/M_R ~ U[12, 150] s au lieu de U[18, 91] s ;
+  eta_low      : graine 7, eta ~ N(0.21, 0.02) (rendement brut) au lieu de N(0.25, 0.02).
 Par athlete : donnees generees comme la campagne (calibration Monte-Carlo de sigma_AP, gen_data, graine 1000 i + 50),
 information de Fisher (sensibilites relatives, rtol 1e-10), bornes par parametre, sur CP, W' et le flux M_R A_Omax,
 exposant de la direction sloppy ; option --fit : LM multi-depart (10 premiers athletes) de la campagne, IC du jacobien.
 Usage : python3 rev3_population.py POP [shard nshards] [--fit] ; synthese : python3 rev3_population.py --analyse"""
 import json, os, sys, glob, time, argparse, importlib.util, numpy as np
 from common_v4 import p3, sens_matrix, fim_summary, BUDGET, HERE
-spec = importlib.util.spec_from_file_location("mkpop", os.path.join(HERE, "make_population_v5.py")); mk = importlib.util.module_from_spec(spec); spec.loader.exec_module(mk)
-POPS = {"seed8": dict(seed=8), "seed9": dict(seed=9), "rho05": dict(seed=7, rho_cp_ap=0.5), "tau_wide": dict(seed=7, tau_lo=12.0, tau_hi=150.0)}
+_MK = next(f for f in [os.path.join(HERE, "make_population_v5.py"), os.path.join(os.path.dirname(HERE), "make_population_v5.py")] if os.path.exists(f))   # a cote du script, sinon dans campagne_v5/
+spec = importlib.util.spec_from_file_location("mkpop", _MK); mk = importlib.util.module_from_spec(spec); spec.loader.exec_module(mk)
+POPS = {"seed8": dict(seed=8), "seed9": dict(seed=9), "rho05": dict(seed=7, rho_cp_ap=0.5), "tau_wide": dict(seed=7, tau_lo=12.0, tau_hi=150.0), "eta_low": dict(seed=7, eta_mu=0.21)}
 N = 20; NFIT = 10   # information de Fisher sur 20 athletes, ajustement LM sur les 10 premiers
 def cp(t): return t[0] * (t[3] * t[1] / (t[3] * t[1] + t[0])) * t[4]
 def wp(t): return t[2] * t[4]

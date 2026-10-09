@@ -2,11 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.1] — 2026-10-09
+
+Second set of additions made before submission, after an internal review of the
+manuscript. The estimation campaign and the 3.1.0 analyses are unchanged; this
+version adds three analyses and one figure.
+
+### Added
+- `campaign_v5/complements_v4/rev3_eiv.py`: errors-in-variables experiment.
+  `A_P` is observed exactly under the true power and the estimator integrates
+  the model under the recorded power (true power plus 5 W white noise at 1-s
+  nodes, linearly interpolated); ten athletes, finite-difference step raised to
+  1e-5 and integration tolerance to 1e-10 (Section 3.5 of the manuscript,
+  Table S8). Outputs `rev3_eiv_0.jsonl`, `rev3_eiv_1.jsonl`; `--analyse`.
+- `campaign_v5/complements_v4/rev3_chi2.py`: chi-squared test of the weighted
+  residual sum of squares (115 degrees of freedom) on the campaign and on every
+  departure from the generating model (Sections 2.6, 3.5 and S5). Outputs
+  `rev3_chi2.json`, `rev3_chi2_null.json`.
+- `campaign_v5/make_population_v5.py`: options `eta_mu`, `eta_sd`;
+  `campaign_v5/complements_v4/rev3_population.py`: fifth alternative population
+  `eta_low` (eta ~ N(0.21, 0.02)), output `rev3_pop_eta_low_0.jsonl`
+  (Table S11); the generator is now found beside the script or in
+  `campaign_v5/`.
+- `campaign_v5/complements_v4/make_fig_summary.py` and
+  `figures/fig_summary.pdf`: Figure 3 of the manuscript, Cramér–Rao bounds on
+  every quantity under the three observables (independent errors, induced
+  covariance, VO2 + T_lim). The former Figures 3 and 4 become Figures 4 and 5.
+
+### Changed
+- Manuscript: abstract rewritten with one result per hypothesis; new Results
+  subsection on the equilibrium, the time to exhaustion and the power–duration
+  relation; the population table of the supplement is now Table S11 and the
+  divergence table Table S9. No change to any reported estimate.
+
 ## [3.1.0] — 2026-10-09
 
-Revision of the manuscript after review. The estimation campaign is unchanged;
-this version adds the analyses of the revision and corrects the name of the
-least-squares estimator.
+Additions made before submission, after an internal review of the manuscript.
+The estimation campaign is unchanged; this version adds the analyses requested
+by that review and corrects the name of the least-squares estimator.
 
 ### Added
 - `campaign_v5/make_population_v5.py`: generator of the virtual population,
@@ -46,7 +79,7 @@ least-squares estimator.
 
 ## [3.0.0] — 2026-10-07
 
-Release accompanying the manuscript submitted to PeerJ:
+Release accompanying the manuscript prepared for submission to PeerJ:
 
 > Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.*
 
@@ -55,7 +88,7 @@ archived release since 1.0.0.
 
 ### Added
 - `campaign_v5/`: complete estimation campaign (Levenberg–Marquardt,
-  Differential Evolution, physics-informed network as submitted, two
+  Differential Evolution, physics-informed network in its original form, two
   population baselines) and corrected physics-informed network, with raw
   outputs (`camp_v3_*.jsonl`, `camp_v4_*.jsonl`) and analysis scripts.
 - `campaign_v5/complements_v4/`: Fisher information and least constrained
@@ -65,7 +98,7 @@ archived release since 1.0.0.
   control; residual-weight sweep; departures from the generating model
   (AR(1) noise, efficiency drift) with generalized least squares; protocol
   design (24 designs); power–duration relation; simulated oxygen kinetics.
-- Figures of the submitted manuscript and supplement in `figures/`.
+- Figures of the manuscript and supplement in `figures/`.
 
 ### Changed
 - **Virtual population** recalibrated on critical power

@@ -9,7 +9,7 @@ authors:
     email: "thomas.gomez@univ-evry.fr"
     affiliation: "Université Paris-Saclay, Évry, France; Icam, Grand Paris Sud, France"
     orcid: "https://orcid.org/0000-0003-2017-3446"
-version: "3.1.0"
+version: "3.1.1"
 doi: 10.5281/zenodo.23259692
 date-released: "2026-10-09"
 license: MIT
@@ -34,4 +34,4 @@ preferred-citation:
   title: "Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power - a simulation study"
   journal: "PeerJ"
   year: 2026
-  notes: "Submitted"
+  notes: "Manuscript prepared for submission"
