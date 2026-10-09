@@ -4,7 +4,7 @@ Code, synthetic data and analysis outputs accompanying the manuscript
 
 > Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Submitted to PeerJ (revised version).
 
-Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (first submission), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (revised manuscript), DOI to be added after the release.
+Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (first submission), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (revised manuscript), [10.5281/zenodo.23259692](https://doi.org/10.5281/zenodo.23259692).
 
 > **Version 3.1.0 is the version used for the revised manuscript.** It adds the
 > analyses of the revision (`campaign_v5/complements_v4/rev3_*.py`, the
