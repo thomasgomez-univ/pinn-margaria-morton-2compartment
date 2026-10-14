@@ -4,7 +4,7 @@ Code, synthetic data and analysis outputs accompanying the manuscript
 
 > Gomez, T. (2026). *Which quantities of a bioenergetic digital twin of an athlete can be individualized? Identifiability of a two-compartment model of critical power — a simulation study.* Manuscript prepared for submission to PeerJ.
 
-Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (manuscript of 7 October 2026), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (manuscript of 9 October 2026, after an internal review), [10.5281/zenodo.23259692](https://doi.org/10.5281/zenodo.23259692).
+Archived on Zenodo: all versions, [10.5281/zenodo.20076198](https://doi.org/10.5281/zenodo.20076198); version 3.0.0 (manuscript of 7 October 2026), [10.5281/zenodo.23223356](https://doi.org/10.5281/zenodo.23223356); version 3.1.0 (manuscript of 9 October 2026, after an internal review), [10.5281/zenodo.23259692](https://doi.org/10.5281/zenodo.23259692); version 3.1.1 (manuscript prepared for submission, after a second internal review), [10.5281/zenodo.23372441](https://doi.org/10.5281/zenodo.23372441).
 
 > **Version 3.1.1 is the version used for the manuscript to be submitted.** It adds to
 > 3.1.0 the errors-in-variables experiment (`rev3_eiv.py`), the chi-squared
@@ -135,12 +135,12 @@ manuscript no longer uses.
 ## Layout
 
 ```
-campaign_v5/           versions 3.0.0–3.1.0: campaign and complements of the manuscript
+campaign_v5/           versions 3.0.0–3.1.1: campaign and complements of the manuscript
 src/mm2c/pipeline.py   model, population, synthetic data, the three estimators,
                        the two baselines, the Fisher information and the CRLB
 scripts/               one script per manuscript item (table above)
 data/                  results of version 2.0.0 (superseded)
-figures/               figures of the manuscript and supplement (v3.1.0)
+figures/               figures of the manuscript and supplement (v3.1.1)
 ```
 
 ## Caveat
